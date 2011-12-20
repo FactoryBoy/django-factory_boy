@@ -4,18 +4,18 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-factory_boy',
-    version='0.1.1', # remember to change django_factory_boy/__init__.py
+    version='0.1.2', # remember to change django_factory_boy/__init__.py
     author='Votizen',
     author_email='team@votizen.com',
     url='http://github.com/votizen/django-factory_boy',
     description = 'Uses factory_boy to supply test data factory classes for all stock Django models.',
     packages=find_packages(),
     zip_safe=False,
-    install_requires=['factory_boy_jdunck>=1.0.3'],
+    install_requires=['factory_boy_rbarrois>=1.0.4'],
     include_package_data=True,
     tests_require=['unittest2>=0.5.1', 
         'django>=1.3',
-        'factory_boy_jdunck>=1.0.3'
+        'factory_boy_rbarrois>=1.0.4'
     ],
     test_suite='runtests.get_suite',
     classifiers=[
