@@ -11,11 +11,11 @@ setup(
     description = 'Uses factory_boy to supply test data factory classes for all stock Django models.',
     packages=find_packages(),
     zip_safe=False,
-    install_requires=['factory_boy>=1.0.0'],
+    install_requires=['factory_boy_jdunck>=1.0.3'],
     include_package_data=True,
     tests_require=['unittest2>=0.5.1', 
         'django>=1.3',
-        'factory_boy>=1.0.0'
+        'factory_boy_jdunck>=1.0.3'
     ],
     test_suite='runtests.get_suite',
     classifiers=[
