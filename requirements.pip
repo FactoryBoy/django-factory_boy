@@ -1,0 +1,2 @@
+# no tags avl, but stable; reviewed Dec 1 2011.
+git+https://github.com/rbarrois/factory_boy.git@41c68349cf3925818a6c05477790a2f67d431d39#egg=factory_boy
