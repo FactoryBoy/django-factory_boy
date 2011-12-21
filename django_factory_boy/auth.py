@@ -24,10 +24,20 @@ class PermissionF(factory.Factory):
 class GroupF(factory.Factory):
     FACTORY_FOR = models.Group
 
+    @classmethod
+    def _setup_next_sequence(cls):
+        return cls._associated_class.objects.values_list(
+            'id', flat=True).order_by('-id')[0] + 1
+
     name = factory.Sequence(lambda n: "group%s" % n)
 
 class UserF(factory.Factory):
     FACTORY_FOR = models.User
+
+    @classmethod
+    def _setup_next_sequence(cls):
+        return cls._associated_class.objects.values_list(
+            'id', flat=True).order_by('-id')[0] + 1
 
     username = factory.Sequence(lambda n: "username%s" % n)
     first_name = factory.Sequence(lambda n: "first_name%s" % n)
