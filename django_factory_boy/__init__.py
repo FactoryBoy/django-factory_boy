@@ -1,2 +1,2 @@
-__version__ = (0, 1, 2) # remember to change setup.py
+__version__ = (0, 1, 3) # remember to change setup.py
 
