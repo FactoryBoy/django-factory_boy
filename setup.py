@@ -15,7 +15,7 @@ setup(
     include_package_data=True,
     tests_require=['unittest2>=0.5.1', 
         'django>=1.3',
-        'factory_boy_rbarrois>=1.0.4'
+        'factory_boy>=1.0.4'
     ],
     test_suite='runtests.get_suite',
     classifiers=[
