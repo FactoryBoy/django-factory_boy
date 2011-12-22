@@ -18,7 +18,7 @@ class PermissionF(factory.Factory):
     FACTORY_FOR = models.Permission
 
     name = factory.Sequence(lambda n: "permission%s" % n)
-    content_type = contenttypes.ContentTypeF()
+    content_type = factory.SubFactory(contenttypes.ContentTypeF)
     codename = factory.Sequence(lambda n:"factory_%s" % n)
 
 class GroupF(factory.Factory):
@@ -53,5 +53,5 @@ class UserF(factory.Factory):
 class MessageF(factory.Factory):
     FACTORY_FOR = models.Message
 
-    user = UserF()
+    user = factory.SubFactory(UserF)
     message = factory.Sequence(lambda n: "message %s" % n)
