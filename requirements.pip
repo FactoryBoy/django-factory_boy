@@ -1,1 +1,1 @@
-git+https://github.com/jdunck/factory_boy.git@v1.0.3#egg=factory_boy
+factory_boy==1.0.4
