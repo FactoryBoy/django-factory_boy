@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-factory_boy',
-    version='0.1.5', # remember to change django_factory_boy/__init__.py
+    version='0.1.6', # remember to change django_factory_boy/__init__.py
     author='Votizen',
     author_email='team@votizen.com',
     url='http://github.com/votizen/django-factory_boy',

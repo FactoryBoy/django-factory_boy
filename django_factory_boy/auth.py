@@ -26,8 +26,11 @@ class GroupF(factory.Factory):
 
     @classmethod
     def _setup_next_sequence(cls):
-        return cls._associated_class.objects.values_list(
-            'id', flat=True).order_by('-id')[0] + 1
+        try:
+            return cls._associated_class.objects.values_list(
+                'id', flat=True).order_by('-id')[0] + 1
+        except IndexError:
+            return 0
 
     name = factory.Sequence(lambda n: "group%s" % n)
 
@@ -36,8 +39,11 @@ class UserF(factory.Factory):
 
     @classmethod
     def _setup_next_sequence(cls):
-        return cls._associated_class.objects.values_list(
-            'id', flat=True).order_by('-id')[0] + 1
+        try:
+            return cls._associated_class.objects.values_list(
+                'id', flat=True).order_by('-id')[0] + 1
+        except IndexError:
+            return 0
 
     username = factory.Sequence(lambda n: "username%s" % n)
     first_name = factory.Sequence(lambda n: "first_name%s" % n)
