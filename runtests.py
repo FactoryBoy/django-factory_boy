@@ -20,6 +20,7 @@ settings.configure(
     INSTALLED_APPS=[
         'django.contrib.auth',
         'django.contrib.contenttypes',
+        'django.contrib.sites',
         'django_factory_boy',
     ],
 )

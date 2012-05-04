@@ -1,6 +1,7 @@
 from factory import Factory
 import unittest
 
+
 class TestSimple(unittest.TestCase):
     def _test_app(self, module):
         for f_prop in dir(module):
@@ -20,3 +21,7 @@ class TestSimple(unittest.TestCase):
     def test_contenttypes(self):
         from django_factory_boy import contenttypes
         self._test_app(contenttypes)
+
+    def test_sites(self):
+        from django_factory_boy import sites
+        self._test_app(sites)
