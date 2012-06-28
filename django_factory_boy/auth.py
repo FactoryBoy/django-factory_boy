@@ -1,5 +1,6 @@
 import datetime
 
+from django import VERSION as DJANGO_VERSION
 from django.conf import settings
 from django.contrib.auth import models
 from django.db.models import get_model
@@ -94,8 +95,9 @@ def user_create(cls, **kwargs):
     return user
 UserF.set_creation_function(user_create)
 
-class MessageF(factory.Factory):
-    FACTORY_FOR = models.Message
+if DJANGO_VERSION[:2] <= (1, 3):
+    class MessageF(factory.Factory):
+        FACTORY_FOR = models.Message
 
-    user = factory.SubFactory(UserF)
-    message = factory.Sequence(lambda n: "message %s" % n)
+        user = factory.SubFactory(UserF)
+        message = factory.Sequence(lambda n: "message %s" % n)
