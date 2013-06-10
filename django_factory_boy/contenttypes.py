@@ -24,7 +24,7 @@ def get_model(app_label):
     else:
         return None
 
-class ContentTypeF(factory.Factory):
+class ContentTypeF(factory.DjangoModelFactory):
     FACTORY_FOR = models.ContentType
 
     name = factory.Sequence(lambda n: "content type %s" % n)
@@ -44,11 +44,10 @@ class ContentTypeF(factory.Factory):
     def model(a):
         return get_model(a.app_label)
     
-def CTF_create(cls, **kwargs):
-    app_label = kwargs.pop('app_label')
-    model = kwargs.pop('model')
-    return models.ContentType.objects.get_or_create(
-        app_label=app_label,
-        model=model._meta.module_name, defaults=kwargs)[0]
-
-ContentTypeF.set_creation_function(CTF_create)
+    @classmethod
+    def _create(cls, target_class, *args, **kwargs):
+        app_label = kwargs.pop('app_label')
+        model = kwargs.pop('model')
+        return models.ContentType.objects.get_or_create(
+            app_label=app_label,
+            model=model._meta.module_name, defaults=kwargs)[0]
