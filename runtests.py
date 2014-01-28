@@ -1,26 +1,40 @@
-import unittest2
-import doctest
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2011-2013 Raphaël Barrois
+# This code is distributed under the two-clause BSD license.
 
+from __future__ import unicode_literals
+
+import sys
+
+# Generic Django imports
 from django.conf import settings
-from django.core.management import call_command
 
-settings.configure(DATABASES={
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
-    }
-}, INSTALLED_APPS=['django.contrib.auth', 'django.contrib.contenttypes']
+settings.configure(
+    DATABASES={
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
+    },
+    INSTALLED_APPS=[
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django_factory_boy',
+    ],
 )
 
-def get_suite():
-    call_command('syncdb', interactive=False)
-    loader = unittest2.TestLoader()
-    suite = loader.discover('django_factory_boy')
+# "configuration required" django imports
+from django.test import simple
 
-    return suite
+
+def runtests(*test_args):
+    if not test_args:
+        test_args = ('django_factory_boy',)
+    runner = simple.DjangoTestSuiteRunner(failfast=False)
+    failures = runner.run_tests(test_args)
+    sys.exit(failures)
+
 
 if __name__ == '__main__':
-    result = unittest2.TestResult()
-    get_suite().run(result)
-    for error in result.errors:
-        print error
+    runtests(*sys.argv[1:])
