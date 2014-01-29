@@ -3,9 +3,10 @@ from django.contrib.contenttypes import models
 from django.db.models import Model
 
 import factory
+import factory.django
 
 __all__ = (
-    'ContentTypeF',
+    'ContentTypeFactory',
 )
 
 def get_model(app_label):
@@ -24,10 +25,12 @@ def get_model(app_label):
     else:
         return None
 
-class ContentTypeF(factory.DjangoModelFactory):
+
+class ContentTypeFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = models.ContentType
 
     name = factory.Sequence(lambda n: "content type %s" % n)
+
     @factory.lazy_attribute
     def app_label(a):
         for label_maybe in settings.INSTALLED_APPS:
@@ -43,7 +46,7 @@ class ContentTypeF(factory.DjangoModelFactory):
     @factory.lazy_attribute
     def model(a):
         return get_model(a.app_label)
-    
+
     @classmethod
     def _create(cls, target_class, *args, **kwargs):
         app_label = kwargs.pop('app_label')
