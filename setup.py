@@ -18,7 +18,7 @@ setup(
         'django>=1.3',
         'factory_boy>=1.0.4'
     ],
-    test_suite='runtests.get_suite',
+    test_suite='runtests.runtests',
     classifiers=[
         'Framework :: Django',
         'Intended Audience :: Developers',
