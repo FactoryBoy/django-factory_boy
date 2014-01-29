@@ -2,12 +2,12 @@ When testing a ``django`` app, a common case is to create some data, then test a
 
 `rbarrois/factory_boy`_ is useful for concisely creating objects, particularly for test data.
 
-This project will supply factory_boy classes for each model Django ships.  The factories are named after the class it constructs.  For example, a factory for ``django.contrib.auth.models.User`` is available at ``django_factoryboy.auth.UserF``.
+This project will supply factory_boy classes for each model Django ships.  The factories are named after the class it constructs.  For example, a factory for ``django.contrib.auth.models.User`` is available at ``django_factory_boy.auth.UserFactory``.
 
 See ``factory_boy`` for detailed docs, but all fields are given default values which can be overriden by passing keyword arguments to the constructor.  For example::
 
-    from django_factoryboy.auth import UserF
-    user = UserF(first_name="test")
+    from django_factory_boy import auth as auth_factories
+    user = auth_factories.UserFactory(first_name="test")
 
 would result in a saved ``User`` instance whose ``first_name`` is set to "test".
 
