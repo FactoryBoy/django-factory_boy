@@ -41,7 +41,7 @@ setup(
     packages=[PACKAGE],
     license="BSD",
     install_requires=[
-        'Django',
+        'Django>=1.6',
         'factory_boy>=2.5.0',
     ],
     setup_requires=[
