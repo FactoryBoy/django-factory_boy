@@ -1,27 +1,19 @@
 from factory import Factory
 import unittest
 
+from . import auth
+from . import sites
 
 class TestSimple(unittest.TestCase):
     def _test_app(self, module):
+        """Test a single app."""
         for f_prop in dir(module):
             F = getattr(module, f_prop)
-            try:
-                is_sub = issubclass(F, Factory)
-            except TypeError: # not a subclass at all.
-                is_sub = False
-            else:
-                if is_sub:
-                    F()
+            if isinstance(F, type) and issubclass(F, Factory):
+                F()
 
     def test_auth(self):
-        from django_factory_boy import auth
         self._test_app(auth)
 
-    def test_contenttypes(self):
-        from django_factory_boy import contenttypes
-        self._test_app(contenttypes)
-
     def test_sites(self):
-        from django_factory_boy import sites
         self._test_app(sites)

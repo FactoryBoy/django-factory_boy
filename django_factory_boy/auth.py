@@ -4,11 +4,11 @@ from django import VERSION as DJANGO_VERSION
 from django.conf import settings
 from django.contrib.auth import models
 from django.db.models import get_model
+from django.contrib.contenttypes import models as contenttypes_models
 
 import factory
 import factory.django
 
-from . import contenttypes
 
 __all__ = (
     'UserFactory',
@@ -21,7 +21,7 @@ class PermissionFactory(factory.django.DjangoModelFactory):
         model = models.Permission
 
     name = factory.Sequence(lambda n: "permission%s" % n)
-    content_type = factory.SubFactory(contenttypes.ContentTypeFactory)
+    content_type = factory.Iterator(contenttypes_models.ContentType.objects.all())
     codename = factory.Sequence(lambda n: "factory_%s" % n)
 
 
