@@ -37,9 +37,13 @@ setup(
     maintainer='Raphaël Barrois',
     maintainer_email='raphael.barrois+fboy@polytechnique.org',
     url='http://github.com/rbarrois/django-factory_boy',
+    keywords=['factory_boy', 'django', 'fixtures'],
     packages=[PACKAGE],
-    install_requires=['factory_boy>=1.0.4'],
     license="BSD",
+    install_requires=[
+        'Django',
+        'factory_boy>=1.0.4',
+    ],
     setup_requires=[
         'setuptools>=0.8',
     ],
@@ -60,9 +64,9 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
         "Topic :: Software Development :: Testing",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     test_suite='runtests.runtests',
 )
-
