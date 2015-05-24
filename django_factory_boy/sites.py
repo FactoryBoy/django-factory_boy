@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# Copyright (c) 2011-2012 Votizen
+# Copyright (c) 2013-2015 Raphaël Barrois
+# This code is distributed under the two-clause BSD License.
+
 from django.contrib.sites.models import Site
 
 import factory
