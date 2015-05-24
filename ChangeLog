@@ -1,0 +1,52 @@
+ChangeLog
+=========
+
+.. _v1.0.0:
+
+
+1.0.0 (XXXX-XX-XX)
+------------------
+
+*New:*
+
+    - Proper support for ``Django>=1.6.0``
+    - Update to ``factory_boy>=2.6.0``
+    - Add continuous integration compatibility
+
+*Breaking:*
+
+    - Naming conventions have been updated to align on ``factory_boy`` conventions: ``UserF`` is now ``UserFactory``.
+    - Remove ``ContentTypeFactory``, useless in real tests (all useful ``ContentType`` objects are already created by Django)
+
+
+0.1.7 (2012-06-28)
+------------------
+
+*New:*
+
+    - Add support for ``Django>=1.4``
+
+
+0.1.6 (2012-01-28)
+------------------
+
+*Bugfix:*
+
+    - Fix sequence initialization in ``UserFactory`` and ``GroupFactory``
+
+
+0.1.5 (2012-01-28)
+------------------
+
+*New:*
+
+    - Add support for ``UserProfile``
+
+0.1.4 (2011-12-23)
+------------------
+
+*Packaging:*
+
+    - Switch to the (merged) upstream ``factory_boy``
+
+.. vim:set ft=rst:
