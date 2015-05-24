@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - "2.7"
+  - "3.4"
+  - "pypy"
+
+script:
+  - python setup.py test
+
+install:
+  - make install-deps
+
+notifications:
+  email: false
+  irc: "irc.freenode.org#factory_boy"

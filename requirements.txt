@@ -1,2 +1,2 @@
-factory_boy
-Django
+factory_boy>=2.6.0
+Django>=1.6

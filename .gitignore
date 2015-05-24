@@ -6,6 +6,7 @@ __pycache__/
 
 # Build-related files
 docs/_build/
+auto_dev_requirements*.txt
 .coverage
 .tox
 *.egg-info
