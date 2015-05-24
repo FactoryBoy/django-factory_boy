@@ -32,7 +32,7 @@ clean:
 	@rm -f auto_dev_requirements_*
 
 
-test: install-deps
+test:
 	python -W default setup.py test
 
 pylint:
