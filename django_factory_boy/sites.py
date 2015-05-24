@@ -9,7 +9,8 @@ __all__ = (
 
 
 class SiteF(factory.django.DjangoModelFactory):
-    FACTORY_FOR = Site
+    class Meta:
+        model = Site
 
     name = factory.Sequence(lambda n: "site%s" % n)
     domain = factory.Sequence(lambda n: "site%s.com" % n)
