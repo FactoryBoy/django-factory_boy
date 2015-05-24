@@ -42,7 +42,7 @@ setup(
     license="BSD",
     install_requires=[
         'Django>=1.6',
-        'factory_boy>=2.5.0',
+        'factory_boy>=2.6.0',
     ],
     setup_requires=[
         'setuptools>=0.8',

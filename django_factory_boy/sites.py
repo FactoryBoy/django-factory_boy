@@ -13,4 +13,4 @@ class SiteF(factory.django.DjangoModelFactory):
         model = Site
 
     name = factory.Sequence(lambda n: "site%s" % n)
-    domain = factory.Sequence(lambda n: "site%s.com" % n)
+    domain = factory.Faker('domain_name')
