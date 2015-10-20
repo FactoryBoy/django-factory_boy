@@ -4,4 +4,4 @@
 
 
 __author__ = "Raphaël Barrois <raphael.barrois+djfboy@polytechnique.org>"
-__version__ = "0.1.7"
+__version__ = "1.0.0"
