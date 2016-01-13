@@ -5,8 +5,10 @@
 
 import datetime
 
+from django.conf import settings
 from django.contrib.auth import models
 from django.contrib.contenttypes import models as contenttypes_models
+from django.utils import timezone
 
 import factory
 import factory.django
@@ -17,6 +19,8 @@ __all__ = (
     'PermissionFactory',
     'GroupFactory'
 )
+
+tzinfo = timezone.get_current_timezone() if settings.USE_TZ else None
 
 class PermissionFactory(factory.django.DjangoModelFactory):
     class Meta:
@@ -48,5 +52,5 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_staff = False
     is_superuser = False
 
-    last_login = datetime.datetime(2000, 1, 1)
-    date_joined = datetime.datetime(1999, 1, 1)
+    last_login = datetime.datetime(2000, 1, 1, tzinfo=tzinfo)
+    date_joined = datetime.datetime(1999, 1, 1, tzinfo=tzinfo)
