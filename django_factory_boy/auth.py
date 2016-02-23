@@ -20,7 +20,14 @@ __all__ = (
     'GroupFactory'
 )
 
-tzinfo = timezone.get_current_timezone() if settings.USE_TZ else None
+
+def _get_tzinfo():
+    """Fetch the current timezone."""
+    if settings.USE_TZ:
+        return timezone.get_current_timezone()
+    else:
+        return None
+
 
 class PermissionFactory(factory.django.DjangoModelFactory):
     class Meta:
@@ -52,5 +59,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_staff = False
     is_superuser = False
 
-    last_login = datetime.datetime(2000, 1, 1, tzinfo=tzinfo)
-    date_joined = datetime.datetime(1999, 1, 1, tzinfo=tzinfo)
+    last_login = factory.LazyAttribute(
+        lambda _o: datetime.datetime(2000, 1, 1, tzinfo=_get_tzinfo()))
+    date_joined = factory.LazyAttribute(
+        lambda _o: datetime.datetime(1999, 1, 1, tzinfo=_get_tzinfo()))
